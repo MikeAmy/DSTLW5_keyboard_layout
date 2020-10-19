@@ -1,0 +1,88 @@
+// xkb keymap prepared by Michael Amy
+// Tries hard to make an ordinary QWERTY keyboard
+// as ergonomic as possible.
+
+// Never have to change hand position!
+// Based on the excellent Carpal-x QGMLWY layout.
+// Highly efficient, low-effort layout.
+// Spacebar becomes shift!
+// → Never stretch for the shift keys!
+// Natural wrist alignment using slanted layout.
+// → This layout allows the right thumb to operate the
+// Alt-Graphic key, making 2 extra layers easily accessible.
+// → Puts navigation keys at your fingertips without moving position.
+// → Allows mouse movement.
+// → Many extra symbols are easily typed.
+
+default
+partial alphanumeric_keys
+xkb_symbols "dstlw5" {
+    name[Group1] = "dstlw5";
+
+    key <TLDE> { [asciitilde,      grave,      notsign,        U2248 ] };
+
+    key <AE01> { [     colon,  semicolon,            1,       	  F1 ] };
+    key <AE02> { [         q,          Q,            2,           F2 ] };
+    key <AE03> { [         g,          G,            3,	          F3 ] };
+    key <AE04> { [         m,          M,            4,           F4 ] };
+    key <AE05> { [bracketleft, braceleft,    braceleft,   rightarrow ] };
+    key <AE06> { [         7,  ampersand, leftsinglequotemark, leftdoublequotemark ] };
+    key <AE07> { [         8,   asterisk,     infinity,     multiply ] };
+    key <AE08> { [ 	   9,  parenleft, rightsinglequotemark, rightdoublequotemark ] };
+    key <AE09> { [ bracketright, braceright, braceright,   leftarrow ] };
+    key <AE10> { [         u,          U,            7,      	  F7 ] };
+    key <AE11> { [         b,          B, 	     8, 	  F8 ] };
+    key <AE12> { [         j,          J,	     9, 	  F9 ] };
+
+    key <BKSP> { [ BackSpace,    Delete,             0,          F10 ] };
+
+    key <AD01> { [         d,          D,       dollar, KP_7 ] };
+    key <AD02> { [         s,          S,        slash, KP_Up ]	};
+    key <AD03> { [         t,          T,   asciitilde, KP_9 ] };
+    key <AD04> { [         l,          L,    parenleft, guillemotleft ] };
+    key <AD05> { [         w,          W,      	     5,           F5 ] };
+    key <AD06> { [         5,    percent,         KP_5 ] };
+    key <AD07> { [         6, asciicircum ] };
+    key <AD08> { [         y,          Y,            6,           F6 ] };
+    key <AD09> { [         f,          F,   parenright, guillemeeotright ] };
+    key <AD10> { [         e,          E,     	    Up,	       KP_Up ] };
+    key <AD11> { [         o,          O,        Right,         KP_6 ] };
+    key <AD12> { [         h,          H,   numbersign,        U2021 ] };
+
+    key <AC01> { [         z,          Z,    BackSpace, KP_Left ] };
+    key <AC02> { [         x,          X,     asterisk, KP_5 ] };
+    key <AC03> { [         c,          C,  asciicircum, KP_Right ] };
+    key <AC04> { [         n,          N,    ampersand, Pointer_EnableKeys ] };
+    key <AC05> { [         r,          R,    parenleft, guillemotright ] };
+    key <AC06> { [         3, numbersign,    leftarrow,   rightarrow ] };
+    key <AC07> { [         4,     dollar,    downarrow,      uparrow ] };
+    key <AC08> { [         i,          I,       exclam,	  exclamdown ] };
+    key <AC09> { [         a,          A,         Left,         KP_4 ] };
+    key <AC10> { [     comma,       less,         Down,      KP_Down ] };
+    key <AC11> { [    period,    greater,	    at,       degree ] };
+    
+    key <BKSL> { [ backslash,        bar,        slash,    brokenbar ] };
+
+    key <AB01> { [     slash,	question,       Delete, KP_1 ]	};
+    key <AB02> { [         k,          K,    copyright, KP_Down ] };
+    key <AB03> { [         v,          V,   VoidSymbol, KP_3 ] };
+    key <AB04> { [     equal,       plus,        U2260,    plusminus ] };  
+    key <AB05> { [	   0, parenright,       degree,          F10 ] };
+    key <AB06> { [         2,         at,  twosuperior,          F12 ] };
+    key <AB07> { [    	   1,     exclam,  onesuperior,          F11 ] };
+    key <AB08> { [     space, underscore,        minus,        minus ] };
+    key <AB09> { [         p,          P,      percent,     sterling ] };
+    key <AB10> { [apostrophe,	quotedbl,        grave,        acute ] };
+// Page Up/Down keys don't work with modifiers
+    key <FK09> { [ Prior ]};
+    key <FK10> { [ Next ]};
+
+    key <SPCE> { [ VoidSymbol ] };
+    include "level3(ralt_switch)"
+    key <SPCE> {
+    	type= "ONE_LEVEL",
+	symbols[Group1]=[ISO_Level2_Shift]
+    };
+    modifier_map Shift { <SPCE> };
+};
+
